@@ -7,7 +7,7 @@ from adafruit_ble.advertising.standard import ProvideServicesAdvertisement
 from adafruit_ble.services.nordic import UARTService
 import time
 
-class BluetoothConn(DefaultDelegate):
+class BluetoothConn():
     def __init__(self):
         self._ble = BLERadio()
         self.conn = None
