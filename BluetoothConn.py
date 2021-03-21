@@ -30,4 +30,4 @@ class BluetoothConn():
             print("connected still")
 
         # Stop scanning whether or not we are connected.
-        ble.stop_scan()
+        self._ble.stop_scan()
