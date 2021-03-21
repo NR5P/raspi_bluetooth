@@ -20,6 +20,7 @@ class BluetoothConn():
         if not self.conn:
             print("scanning....")
             for bconn in self._ble.start_scan(ProvideServicesAdvertisement, timeout=5):
+                print(bconn)
                 if UARTService in bconn.services:
                     print("found a UARTService advertisement")
                     self.conn = self._ble.connect(adv)
