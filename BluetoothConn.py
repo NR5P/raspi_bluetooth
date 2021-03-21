@@ -1,4 +1,7 @@
 from bluepy.btle import Scanner, DefaultDelegate
+# https://raspberrypi.stackexchange.com/questions/114149/bluetooth-library-for-raspberry-pi 
+
+# https://github.com/adafruit/Adafruit_CircuitPython_BLE/blob/master/examples/ble_demo_central.py
 
 class BluetoothConn(DefaultDelegate):
     def __init__(self):
