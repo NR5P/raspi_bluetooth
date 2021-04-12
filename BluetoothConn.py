@@ -3,6 +3,7 @@
 # https://github.com/adafruit/Adafruit_CircuitPython_BLE/blob/master/examples/ble_demo_central.py
 
 from adafruit_ble import BLERadio
+from adafruit_ble import Advertisement
 from adafruit_ble.advertising.standard import ProvideServicesAdvertisement
 from adafruit_ble.services.nordic import UARTService
 import time
@@ -19,12 +20,8 @@ class BluetoothConn():
     def scanForDevices(self):
         if not self.conn:
             print("scanning....")
-            for bconn in self._ble.start_scan(ProvideServicesAdvertisement, timeout=5):
-                print(bconn)
-                if UARTService in bconn.services:
-                    print("found a UARTService advertisement")
-                    self.conn = self._ble.connect(adv)
-                    break
+            for bconn in self._ble.start_scan(ProvideServicesAdvertisement, Advertisement):
+                print(bconn.address)
             self._ble.stop_scan()
         while self.conn and self.conn.connected:
             time.sleep(1)
